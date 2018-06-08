@@ -11,6 +11,7 @@ class Template extends React.Component {
   render() {
     const { location, children } = this.props
     const siteTitle = get(this, 'props.data.cosmicjsSettings.metadata.site_heading')
+    const siteSubTitle = get(this, 'props.data.cosmicjsSettings.metadata.site_sub_heading')
     const homgePageHero = get(this, 'props.data.cosmicjsSettings.metadata.homepage_hero.imgix_url')
     let header
 
@@ -28,25 +29,26 @@ class Template extends React.Component {
             backgroundColor: "#007ACC",
             backgroundImage: `url("${homgePageHero}?w=2000")`,
             backgroundSize: 'cover',
-            backgroundPosition: 'right',
+            backgroundPosition: 'center',
             width: '100%',
             height: rhythm(14),
             position: 'relative',
             marginBottom: `${rhythm(1.5)}`,
           }}
         >
-          <h1
+          <div 
             style={{
               ...scale(1.3),
               position: 'absolute',
               textAlign: 'center',
               left: 0,
               right: 0,
-              top: rhythm(4),
+              top: rhythm(3),
               marginTop: '0',
               height: rhythm(2.5)
             }}
           >
+          <h1>
             <Link
               style={{
                 boxShadow: 'none',
@@ -58,6 +60,8 @@ class Template extends React.Component {
               {siteTitle}
             </Link>
           </h1>
+          <div style={{ fontSize: 20, color: '#fff' }}>{siteSubTitle}</div>
+          </div>
         </div>
       )
     } else {
@@ -146,6 +150,7 @@ export const query = graphql`
     cosmicjsSettings(slug: {eq: "general"}){
       metadata{
         site_heading
+        site_sub_heading
         homepage_hero{
           imgix_url
         }

@@ -9,12 +9,12 @@ import { rhythm } from '../utils/typography'
 class BlogIndex extends React.Component {
   constructor() {
     super()
-    this.state = {limit: 10}
+    this.state = {limit: 5}
   }
   addPosts(e) {
     e.preventDefault()
     this.setState({
-      limit: this.state.limit + 10
+      limit: this.state.limit + 5
     })
   }
   render() {
@@ -51,7 +51,7 @@ class BlogIndex extends React.Component {
                 </Link>
               </h3>
               <small>{node.created}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.metadata.teaser }} />
+              <p dangerouslySetInnerHTML={{ __html: node.metadata.teaser !== '<p><br></p>' ? node.metadata.teaser : node.content.replace(/(<([^>]+)>)/ig,"").substring(0,240) + '...' }} />
             </div>
           )
         })}
@@ -76,6 +76,7 @@ export const pageQuery = graphql`
           metadata{
             teaser
           }
+          content
           slug
           title
           created(formatString: "DD MMMM, YYYY")
