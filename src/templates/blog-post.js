@@ -34,7 +34,15 @@ class BlogPostTemplate extends React.Component {
           }
         `}
         </style>
-        <Helmet title={`${post.title} | ${siteTitle}`} />
+        <Helmet>
+          <title>{`${post.title} | ${siteTitle}`}</title>
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@tonyspiro" />
+          <meta name="twitter:title" content={`${post.title} | ${siteTitle}`} />
+          <meta name="twitter:url" content="https://tonyspiro.com" />
+          <meta name="twitter:description" content={ post.metadata.teaser.replace(/(<([^>]+)>)/ig,"") } />
+          <meta name="twitter:image" content={post.metadata.hero.imgix_url} />
+        </Helmet>
         <div
           style={{
             marginTop: rhythm(1.4),
@@ -127,6 +135,7 @@ export const pageQuery = graphql`
         hero{
           imgix_url
         }
+        teaser
       }
     }
     cosmicjsSettings(slug: {eq: "general"}){

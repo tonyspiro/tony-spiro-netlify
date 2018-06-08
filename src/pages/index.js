@@ -35,6 +35,12 @@ class BlogIndex extends React.Component {
         <Helmet>
           <title>{siteTitle}</title>
           <link rel="shortcut icon" href={author.author_avatar.imgix_url + '?w=30'} type="image/x-icon"/>
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@tonyspiro" />
+          <meta name="twitter:title" content={siteTitle} />
+          <meta name="twitter:url" content="https://tonyspiro.com" />
+          <meta name="twitter:description" content="Tony Spiro's blog about technology, business, music and other interests" />
+          <meta name="twitter:image" content="https://cosmic-s3.imgix.net/46c75210-6adb-11e8-bf5e-999e4b8a0363-cosmic-blur.jpeg" />
         </Helmet>
         <Bio settings={author}/>
         {posts.map(({ node }) => {
