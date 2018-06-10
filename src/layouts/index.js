@@ -13,7 +13,6 @@ class Template extends React.Component {
     const siteTitle = get(this, 'props.data.cosmicjsSettings.metadata.site_heading')
     const siteSubTitle = get(this, 'props.data.cosmicjsSettings.metadata.site_sub_heading')
     const homgePageHero = get(this, 'props.data.cosmicjsSettings.metadata.homepage_hero.imgix_url')
-    let header
 
     let rootPath = `/`
     let postsPath = `/`
@@ -21,78 +20,50 @@ class Template extends React.Component {
       rootPath = __PATH_PREFIX__ + `/`
       postsPath = __PATH_PREFIX__ + `/`
     }
-
-    if (location.pathname === rootPath || location.pathname === postsPath) {
-      header = (
-        <div
+    const header = (
+      <div
+        style={{
+          backgroundColor: "#007ACC",
+          backgroundImage: `url("${homgePageHero}?w=2000")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          width: '100%',
+          height: rhythm(14),
+          position: 'relative',
+          marginBottom: `${rhythm(1.5)}`,
+        }}
+      >
+        <div 
           style={{
-            backgroundColor: "#007ACC",
-            backgroundImage: `url("${homgePageHero}?w=2000")`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            width: '100%',
-            height: rhythm(14),
-            position: 'relative',
-            marginBottom: `${rhythm(1.5)}`,
+            ...scale(1.3),
+            position: 'absolute',
+            textAlign: 'center',
+            left: 0,
+            right: 0,
+            top: rhythm(3),
+            marginTop: '0',
+            height: rhythm(2.5)
           }}
         >
-          <div 
-            style={{
-              ...scale(1.3),
-              position: 'absolute',
-              textAlign: 'center',
-              left: 0,
-              right: 0,
-              top: rhythm(3),
-              marginTop: '0',
-              height: rhythm(2.5)
-            }}
-          >
-          <h1>
-            <Link
-              style={{
-                boxShadow: 'none',
-                textDecoration: 'none',
-                color: '#fff',
-              }}
-              to={'/'}
-            >
-              {siteTitle}
-            </Link>
-          </h1>
-          <div style={{ fontSize: 20, color: '#fff' }}>{siteSubTitle}</div>
-          </div>
-        </div>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: 'Montserrat, sans-serif',
-            marginTop: 0,
-            marginBottom: rhythm(-1),
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            maxWidth: rhythm(24),
-            paddingTop: `${rhythm(1.5)}`,
-          }}
-        >
+        <h1>
           <Link
             style={{
               boxShadow: 'none',
               textDecoration: 'none',
-              color: 'inherit',
+              color: '#fff',
             }}
             to={'/'}
           >
             {siteTitle}
           </Link>
-        </h3>
-      )
-    }
+        </h1>
+        <div style={{ fontSize: 20, color: '#fff' }}>{siteSubTitle}</div>
+        </div>
+      </div>
+    )
     return (
       <div>
-        {header}
+        {location.pathname === rootPath || location.pathname === 'posts' ? header : ''}
         <div
           style={{
             marginLeft: 'auto',
