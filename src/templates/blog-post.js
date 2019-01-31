@@ -93,6 +93,7 @@ class BlogPostTemplate extends React.Component {
           {post.created}
         </p>
         { 
+          post.metadata.hero.imgix_url &&
           post.metadata.hero.imgix_url.replace('https://cosmic-s3.imgix.net/', '') &&
           <div
           className="post-hero"
