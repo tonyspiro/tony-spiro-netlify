@@ -21,6 +21,7 @@ class BlogIndex extends React.Component {
     const siteTitle = get(this, 'props.data.cosmicjsSettings.metadata.site_title')
     const allPosts = get(this, 'props.data.allCosmicjsPosts.edges')
     const author = get(this, 'props.data.cosmicjsSettings.metadata')
+    const homgePageHero = get(this, 'props.data.cosmicjsSettings.metadata.homepage_hero.imgix_url')
     const posts = take(allPosts, this.state.limit)
     return (
       <div>
@@ -40,7 +41,7 @@ class BlogIndex extends React.Component {
           <meta name="twitter:title" content={siteTitle} />
           <meta name="twitter:url" content="https://tonyspiro.com" />
           <meta name="twitter:description" content="Tony Spiro's blog about technology, business, music and other interests" />
-          <meta name="twitter:image" content="https://cosmic-s3.imgix.net/46c75210-6adb-11e8-bf5e-999e4b8a0363-cosmic-blur.jpeg" />
+          <meta name="twitter:image" content={homgePageHero} />
         </Helmet>
         <Bio settings={author}/>
         {posts.map(({ node }) => {
