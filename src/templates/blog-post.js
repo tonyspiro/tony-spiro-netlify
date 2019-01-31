@@ -45,13 +45,35 @@ class BlogPostTemplate extends React.Component {
         </Helmet>
         <div
           style={{
-            marginTop: rhythm(1.4),
+            marginTop: rhythm(1),
           }}
         >
           <Link
             to="/">
             ← Back to Posts
           </Link>
+          <h3
+            style={{
+              fontFamily: 'Montserrat, sans-serif',
+              marginTop: 0,
+              marginBottom: rhythm(1  ),
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              maxWidth: rhythm(24),
+              paddingTop: `${rhythm(1.5)}`,
+            }}
+          >
+            <Link
+              style={{
+                boxShadow: 'none',
+                textDecoration: 'none',
+                color: 'inherit',
+              }}
+              to={'/'}
+            >
+              {siteTitle}
+            </Link>
+          </h3>
         </div>
         <h1
           style={{
