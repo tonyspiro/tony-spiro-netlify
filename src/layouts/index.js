@@ -81,34 +81,44 @@ class Template extends React.Component {
             padding: `0 20px 80px 0`,
           }}
         >
-          This blog is powered by&nbsp;
-          <a target="_blank" href="https://gatsbyjs.org"
-            style={{
-              color: '#191919',
-              boxShadow: 'none'
-            }}
-          >
-            <img src={gatsbyLogo} alt="Gatsby JS"
+          <div style={{ marginBottom: 30 }}>
+            This blog is powered by&nbsp;
+            <a target="_blank" href="https://gatsbyjs.org"
               style={{
-                width: '20px',
-                margin: '0 4px -3px 2px'
+                color: '#191919',
+                boxShadow: 'none'
               }}
-            /><strong>Gatsby</strong>
-          </a>
-          &nbsp;and&nbsp;
-          <a target="_blank" href="https://cosmicjs.com"
-            style={{
-              color: '#191919',
-              boxShadow: 'none'
-            }}
-          >
-            <img src={cosmicjsLogo} alt="Cosmic JS"
+            >
+              <img src={gatsbyLogo} alt="Gatsby JS"
+                style={{
+                  width: '20px',
+                  margin: '0 4px -3px 2px'
+                }}
+              /><strong>Gatsby</strong>
+            </a>
+            &nbsp;and&nbsp;
+            <a target="_blank" href="https://cosmicjs.com"
               style={{
-                width: '18px',
-                margin: '0 4px -2px 5px'
+                color: '#191919',
+                boxShadow: 'none'
               }}
-            /><strong>Cosmic JS</strong>
-          </a>
+            >
+              <img src={cosmicjsLogo} alt="Cosmic JS"
+                style={{
+                  width: '18px',
+                  margin: '0 4px -2px 5px'
+                }}
+              /><strong>Cosmic JS</strong>
+            </a>
+          </div>
+          <div>
+          <a href="https://cosmicjs.com/add-bucket?import_bucket=5b19c0f1476bc3141464c446"
+              style={{
+                color: '#191919',
+                boxShadow: 'none',
+              }}><img src="https://s3-us-west-2.amazonaws.com/cosmicjs/f2360dd0-4e5b-11e9-a745-47794448775c-clone-to-cosmic.svg" class="w-150"/>
+            </a>
+          </div>
         </footer>
       </div>
     )
