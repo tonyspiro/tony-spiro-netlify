@@ -116,7 +116,7 @@ class Template extends React.Component {
               style={{
                 color: '#191919',
                 boxShadow: 'none',
-              }}><img src="https://s3-us-west-2.amazonaws.com/cosmicjs/f2360dd0-4e5b-11e9-a745-47794448775c-clone-to-cosmic.svg" class="w-150"/>
+              }}><img src="https://s3-us-west-2.amazonaws.com/cosmicjs/51fe54d0-4f6e-11e9-9f32-8d001da69630-powered-by-cosmicjs.svg" class="w-180"/>
             </a>
           </div>
         </footer>
